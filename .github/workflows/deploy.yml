@@ -27,7 +27,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
             server: 45.82.189.145  # Gebruik dit IP-adres als FTP-server
-            username: sbhwocxa  # Gebruik deze FTP-gebruikersnaam
+            username: diam96  # Gebruik deze FTP-gebruikersnaam
             password: ${{ secrets.FTP_PASSWORD }}  # Wachtwoord uit GitHub Secrets
             local-dir: ./build/  # De gegenereerde SvelteKit build-map
             server-dir: /httpdocs/  # Controleer of dit de juiste map is in Plesk
