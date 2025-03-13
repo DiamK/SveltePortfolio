@@ -1,10 +1,9 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
+	// Preprocessing voor Svelte bestanden
 	preprocess: vitePreprocess(),
 
 	kit: {
@@ -12,10 +11,15 @@ const config = {
 			$components: 'src/components',
 			$lib: 'src/lib'
 		},
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
+		// Gebruik adapter-static voor statische site hosting via FTP
+		adapter: adapter({
+			pages: 'build', // Output map
+			assets: 'build', // Assets output map
+			fallback: 'index.html' // Voor SPA-routing (optioneel)
+		}),
+		paths: {
+			base: "" // Laat leeg voor root hosting
+		}
 	}
 };
 
