@@ -3,7 +3,7 @@ name: Deploy to Plesk via FTP
 on:
   push:
     branches:
-      - main  # Dit betekent dat elke keer als je naar 'main' pusht, de site wordt geüpdatet
+      - main  
 
 jobs:
   deploy:
